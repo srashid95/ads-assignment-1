@@ -8,25 +8,25 @@ Created on Mon Feb 27 23:01:56 2023
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import random
 
 
 def line_plot(data, title):
     """
     Parameters
-    ----------
+    -------
     data : DataFrame
         It contains the data for countries and their number of users in a
-        specific year who use internet.
+        specific year who use internet. 
     title: String
-        Title of graph
-    Returns
-    -------
-    None.
-    This function creates a multiple-line graph to display the trend of
-    internet usage in multiple countries depending on the number of 
-    users.
-    
+         Title for graph
+        
+        This function creates a multiple-line graph to display the trend of
+        internet usage in multiple ciuntries depending on the number of
+        users.
+        Returns
+        -------
+        None.
+        
     """
     for cnt in data.columns[:7]:
         if cnt == 'Year':
@@ -39,14 +39,12 @@ def line_plot(data, title):
     # add the legend
     plt.legend()
     plt.show()
-    
-    return
 
 
 def division_pie_plot(data, title):
     """
     Parameters
-    ----------
+    -------
     data : DataFrame
         Data for pie plot.
     title: String
@@ -60,7 +58,7 @@ def division_pie_plot(data, title):
     None.
 
     """
-    data_1990 = data.iloc[0, :]  # Get data for first row
+    data_1990 = data.iloc[0,:]  # Get data for first row
     data_1990 = data_1990[0:4]  # Get only first 4 countries for specified year
 
     # Get percentage for each country population for internet usage
@@ -71,8 +69,6 @@ def division_pie_plot(data, title):
     plt.axis('equal')
     plt.title(title)
     plt.show()
-    
-    return
 
 
 def gdp_bar_plot(data, title, xlabel, ylabel):
@@ -103,8 +99,6 @@ def gdp_bar_plot(data, title, xlabel, ylabel):
 
     # Draw graph
     plt.show()
-    
-    return
 
 
 # Source: https://www.kaggle.com/datasets/pavan9065/internet-usage
@@ -139,8 +133,7 @@ gdp_data = pd.DataFrame(gdp_data)
 # Cleaning data by dropping rows having NaN values
 gdp_data = gdp_data.dropna()
 
-# Selecting a random Country
-country = gdp_data.iloc[random.randint(0, len(gdp_data)), :]
+country = gdp_data.iloc[5]
 
 country_name = country['Country Name']
 graph_title = "GDP for " + country_name
